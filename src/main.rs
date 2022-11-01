@@ -15,22 +15,24 @@ fn update() {}
 fn render(
     rl: &mut RaylibHandle,
     thread: &RaylibThread,
-) {
-        let mut d = rl.begin_drawing(&thread);
-        d.clear_background(Color::new(
-            147,
-            211,
-            196,
-            255,
-        ));
-        // drawing scene
+) {     
+    let mut d = rl.begin_drawing(&thread);
+    d.clear_background(Color::new(
+        147,
+        211,
+        196,
+        55,
+    ));
 
-        d.draw_text("Hello World", 190, 200, 20, Color::LIGHTGRAY);
+    // drawing scene
+
+    d.draw_text("Hello World", 190, 200, 20, Color::LIGHTGRAY);
 }
 
 // fn init() {}
 
 // fn quit() {}
+
 
 fn main() {
     let (mut rl, thread) = raylib::init()
