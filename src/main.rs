@@ -5,7 +5,7 @@ const SCREEN_WIDTH: i32 = 1000;
 const SCREEN_HEIGHT: i32 = 480;
 const MAX_FPS: u32 = 60;
 
-fn draw_scene() {}
+const GRASS_TEXTURE: &str = "assets/Tilesets/ground_tiles/new_tiles/Grass_tiles_v2.png";
 
 // game loop functions
 fn input() {}
@@ -23,7 +23,8 @@ fn render(
             196,
             255,
         ));
-        draw_scene();
+        // drawing scene
+
         d.draw_text("Hello World", 190, 200, 20, Color::LIGHTGRAY);
 }
 
