@@ -1,20 +1,48 @@
 use raylib::prelude::*;
 
-// function for drawing things to the screen
-fn draw(handle: &mut RaylibHandle, thread: &RaylibThread) {
-    let mut d = handle.begin_drawing(&thread);
+// constant variables
+const SCREEN_WIDTH: i32 = 1000;
+const SCREEN_HEIGHT: i32 = 480;
+const MAX_FPS: u32 = 60;
 
-    d.clear_background(Color::WHITE);
-    d.draw_text("Hello world", 12, 12, 20, Color::BLACK);
+fn draw_scene() {}
+
+// game loop functions
+fn input() {}
+
+fn update() {}
+
+fn render(
+    rl: &mut RaylibHandle,
+    thread: &RaylibThread,
+) {
+        let mut d = rl.begin_drawing(&thread);
+        d.clear_background(Color::new(
+            147,
+            211,
+            196,
+            255,
+        ));
+        draw_scene();
+        d.draw_text("Hello World", 190, 200, 20, Color::LIGHTGRAY);
 }
+
+// fn init() {}
+
+// fn quit() {}
 
 fn main() {
     let (mut rl, thread) = raylib::init()
-        .size(640, 480)
+        .size(SCREEN_WIDTH, SCREEN_HEIGHT)
         .title("Raylib Test")
         .build();
-
+    
+    rl.set_exit_key(Some(KeyboardKey::KEY_ZERO));
+    rl.set_target_fps(MAX_FPS);
+    
     while !rl.window_should_close() {
-        draw(&mut rl, &thread);
+        input();
+        update();
+        render(&mut rl, &thread);
     }
 }
